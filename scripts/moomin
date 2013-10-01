@@ -1,0 +1,60 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+import sys
+import os
+import moomin
+import urllib
+
+def print_usage():
+    print """
+moomin [command] args...
+
+command:
+  - list                  list all pages.
+  - browse <page>         open the page with your default browser
+  - show <page>           show the page.
+  - save <page> <file>    update page with the content of the file.
+"""
+
+if __name__ == '__main__':
+    argvs = sys.argv
+    if len(argvs) < 2:
+        print_usage()
+        sys.exit(1)
+
+    subcommand = argvs[1]
+    c = moomin.Client()
+    c.login()
+
+    if subcommand == 'list':
+        print c.GET('?action=titleindex').rstrip()
+        sys.exit()
+
+    if subcommand == 'browse':
+        if len(argvs) != 3:
+            print_usage()
+            sys.exit(1)
+        pagename = urllib.quote(argvs[2])
+        c.browse(pagename)
+        sys.exit()
+
+    if subcommand == 'show':
+        if len(argvs) != 3:
+            print_usage()
+            sys.exit(1)
+        pagename = urllib.quote(argvs[2])
+        print c.get_text(pagename)
+        sys.exit()
+
+    if subcommand == 'save':
+        if len(argvs) != 4:
+            print_usage()
+            sys.exit(1)
+        pagename = urllib.quote(argvs[2])
+        content = argvs[3]
+        print pagename
+        print content
+        c.save_text(pagename, content)
+        sys.exit()
+
+    print_usage()
