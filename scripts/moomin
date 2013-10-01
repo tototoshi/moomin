@@ -52,8 +52,6 @@ if __name__ == '__main__':
             sys.exit(1)
         pagename = urllib.quote(argvs[2])
         content = argvs[3]
-        print pagename
-        print content
         c.save_text(pagename, content)
         sys.exit()
 
