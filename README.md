@@ -1,6 +1,6 @@
 # moomin
 
-A Command line tool for MoinMoin wiki.
+Command line tool for MoinMoin wiki.
 
 ## Install
 
