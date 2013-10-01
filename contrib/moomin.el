@@ -27,8 +27,6 @@
 (require 'screen-lines)
 (require 'moinmoin-mode)
 
-(defvar moomin-url nil)
-
 (defvar moomin-buffer-prefix "moinmoin-")
 
 (defun ewiki-with-emacs (title)
