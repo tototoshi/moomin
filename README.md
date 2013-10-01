@@ -7,7 +7,7 @@ A Command line tool for MoinMoin wiki.
 1. First, install 'moomin' command.
 
 ```
-$ sudo python setup.py install
+$ sudo pip install moomin
 ```
 
 2. Create ~/.moinrc.
