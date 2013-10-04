@@ -36,8 +36,8 @@
     (switch-to-buffer buf)
     (erase-buffer)
     (insert
-     (print (shell-command-to-string
-       (format "moomin show '%s'" title))))
+     (shell-command-to-string
+      (format "moomin show '%s'" title)))
     (goto-char (point-min))
     (moinmoin-mode)))
 
@@ -54,7 +54,7 @@
     (moomin-file-put-contents tmpfile (buffer-substring-no-properties (point-min) (point-max)))
     (when page-name
       (shell-command-to-string
-       (print (format "moomin save '%s' %s" page-name tmpfile))))
+       (format "moomin save '%s' %s" page-name tmpfile)))
     (delete-file tmpfile)
     (message (format "save %s" page-name))))
 
