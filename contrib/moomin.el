@@ -65,7 +65,7 @@
   (moomin-join
    (mapcar '(lambda (x) (http-url-encode x 'utf-8)) (split-string s "/"))))
 
-(defun wiki (title)
+(defun moomin-wiki (title)
   (interactive "sTitle: ")
   (shell-command-to-string (format "moomin browse '%s'" title)))
 
@@ -76,9 +76,8 @@
       '((name . "Page list")
         (candidates . helm-moomin-page-list)
         (action
-         . (("View" . wiki)
-            ("Edit with emacs" . ewiki-with-emacs)
-            ))))
+         . (("View" . moomin-wiki)
+            ("Edit with emacs" . ewiki-with-emacs)))))
 
 (defun helm-moomin ()
   (interactive)
