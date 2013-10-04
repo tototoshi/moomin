@@ -38,7 +38,7 @@ command:
 ## TODO
 
 - Checking conflict.
-- Reducing http request.
+- Caching and reducing http request.
 
 ## LICENSE
 
